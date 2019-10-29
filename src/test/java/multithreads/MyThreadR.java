@@ -2,21 +2,21 @@ package multithreads;
 
 public class MyThreadR implements Runnable {
     private Thread thread;
+    private static Common common;
 
-    public MyThreadR() {
+    public MyThreadR(Common common) {
         thread = new Thread(this,"MyThread by implements: ");
         thread.start();
+        this.common = common;
     }
 
     @Override
     public void run() {
-        for(int i = 0; i < 100; i++) {
-            System.out.println(thread.getName() + i);
-            try {
-                thread.sleep(1);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+        common.increment();
+        try {
+            thread.sleep(2);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 }

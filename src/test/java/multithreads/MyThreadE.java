@@ -1,20 +1,21 @@
 package multithreads;
 
 public class MyThreadE extends Thread {
-    public MyThreadE() {
+    private Common common;
+
+    public MyThreadE(Common common) {
         setName("MyThread by extends: ");
         start();
+        this.common = common;
     }
 
     @Override
     public void run() {
-        for(int i = 0; i < 100; i++) {
-            System.out.println(getName() + i);
-            try {
-                sleep(2);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+        common.increment();
+        try {
+            sleep(1);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 }
