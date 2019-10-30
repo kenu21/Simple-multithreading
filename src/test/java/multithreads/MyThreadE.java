@@ -5,7 +5,6 @@ public class MyThreadE extends Thread {
 
     public MyThreadE(Counter counter) {
         setName("MyThread by extends: ");
-        start();
         this.counter = counter;
     }
 
