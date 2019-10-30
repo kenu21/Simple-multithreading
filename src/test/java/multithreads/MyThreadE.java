@@ -1,17 +1,17 @@
 package multithreads;
 
 public class MyThreadE extends Thread {
-    private Common common;
+    private Counter counter;
 
-    public MyThreadE(Common common) {
+    public MyThreadE(Counter counter) {
         setName("MyThread by extends: ");
         start();
-        this.common = common;
+        this.counter = counter;
     }
 
     @Override
     public void run() {
-        common.increment();
+        counter.increment();
         try {
             sleep(1);
         } catch (InterruptedException e) {

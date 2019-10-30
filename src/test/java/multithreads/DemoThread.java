@@ -1,11 +1,9 @@
 package multithreads;
 
 public class DemoThread {
-    private static Common common = new Common();
+    private static Counter counter = new Counter();
     public static void main(String[] args) throws InterruptedException {
-        MyThreadR myThreadR = new MyThreadR(common);
-        MyThreadE myThreadE = new MyThreadE(common);
-        myThreadE.join();
-        myThreadE.join();
+        MyThreadR myThreadR = new MyThreadR(counter);
+        MyThreadE myThreadE = new MyThreadE(counter);
     }
 }

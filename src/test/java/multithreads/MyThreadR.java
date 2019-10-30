@@ -2,17 +2,17 @@ package multithreads;
 
 public class MyThreadR implements Runnable {
     private Thread thread;
-    private static Common common;
+    private static Counter counter;
 
-    public MyThreadR(Common common) {
+    public MyThreadR(Counter counter) {
         thread = new Thread(this,"MyThread by implements: ");
         thread.start();
-        this.common = common;
+        this.counter = counter;
     }
 
     @Override
     public void run() {
-        common.increment();
+        counter.increment();
         try {
             thread.sleep(2);
         } catch (InterruptedException e) {
